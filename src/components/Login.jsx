@@ -4,8 +4,9 @@ import app from './firebase.config';
 import { AuthContex } from './AuthProvider';
 
 const Login = () => {
-    const {displayName, fullName} = useContext(AuthContex)
 
+    const {signInUser, allUser} = useContext(AuthContex)
+    console.log(allUser)
 
 
     
@@ -14,6 +15,11 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value
         const password = form.password.value
+        signInUser(email, password)
+        .then( (result) => {
+          const loggedUser = result.user;
+        }) 
+        .catch( (error) => {console.error(error)})
         form.reset()
     }
     

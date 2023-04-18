@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContex } from './AuthProvider';
 
 const Register = () => {
-    const [user, setUser] = useState(null)
+
     const {signUpUser} = useContext(AuthContex)
 
 

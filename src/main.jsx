@@ -11,7 +11,9 @@ import Home from './components/Home';
 import Order from './components/Order';
 import Login from './components/Login';
 import Register from './components/Register';
-import AuthProvider from './components/AuthProvider';
+import AuthProviders from './components/AuthProviders';
+import Profile from './components/Profile';
+import PrivetRoute from './components/layout/PrivetRoute/PrivetRoute';
 
 
 const router = createBrowserRouter([
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
         element : <Order></Order>
       },
       {
+        path : "/profile",
+        element : <PrivetRoute><Profile></Profile></PrivetRoute>
+      },
+      {
         path : "/login",
         element : <Login></Login>
       },
@@ -36,14 +42,16 @@ const router = createBrowserRouter([
         element : <Register></Register>
       },
 
+
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
+    <AuthProviders>
     <RouterProvider router={router} />
-    </AuthProvider>
+    </AuthProviders>
+
   </React.StrictMode>,
 )
